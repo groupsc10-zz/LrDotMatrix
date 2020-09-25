@@ -1,0 +1,68 @@
+unit lr_dotmatrix_dlg;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes,
+  SysUtils,
+  FileUtil,
+  Forms,
+  Controls,
+  Graphics,
+  Dialogs,
+  StdCtrls,
+  Spin,
+  Buttons;
+
+type
+
+  { TlrDMDlg }
+
+  TlrDMDlg = class(TForm)
+    // buttons
+    btnOK: TBitBtn;
+    btnCancel: TBitBtn;
+    cboOptionsLineSpacing: TComboBox;
+    lblOptionsLineSpacing: TLabel;
+    lblOptionsLineSpacingCustom: TLabel;
+    // printer
+    lblPrinter: TLabel;
+    cboPrinter: TComboBox;
+    // copie
+    lblCopies: TLabel;
+    edtCopies: TSpinEdit;
+    // page
+    grpOptions: TGroupBox;
+    chkOptionsAutoNewPage: TCheckBox;
+    lblOptionsAutoNewPageLines: TLabel;
+    edtOptionsAutoNewPageLines: TSpinEdit;
+    edtOptionsLineSpacingCustom: TSpinEdit;
+    procedure cboOptionsLineSpacingChange(Sender: TObject);
+  end;
+
+var
+  lrDMDlg: TlrDMDlg;
+
+implementation
+
+{$R *.lfm}
+
+{ TlrDMDlg }
+
+procedure TlrDMDlg.cboOptionsLineSpacingChange(Sender: TObject);
+begin
+  if (cboOptionsLineSpacing.ItemIndex = 0) then
+  begin
+    edtOptionsLineSpacingCustom.Enabled := True;
+  end
+  else
+  begin
+    edtOptionsLineSpacingCustom.Enabled := False;
+    edtOptionsLineSpacingCustom.Value := 0;
+  end;
+end;
+
+end.
+

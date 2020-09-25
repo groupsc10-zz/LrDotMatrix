@@ -1,0 +1,10 @@
+================================================================================
+unit = > lf_pgopt
+
+procedure TfrPgoptForm.ComB1Change(Sender: TObject);
+begin
+  frEnableControls([Label1, Label2, E1, E2],
+    Prn.PaperSizes[ComB1.ItemIndex] = $100);
+end; 
+
+================================================================================

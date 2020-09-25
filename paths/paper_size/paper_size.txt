@@ -1,0 +1,22 @@
+================================================================================
+unit = > printers.pas
+
+function TPaperSize.GetDefaultPaperName: string;
+begin
+ CheckSupportedPapers;
+
+ {if Not(fDefaultPapers) then
+   Result := fOwnedPrinter.DoGetDefaultPaperName;
+
+ if (Result = '') then
+ begin
+   Result := fSupportedPapers[0];
+ end; }
+
+ if fDefaultPapers then
+   Result := FSupportedPapers[0]
+ else
+   Result := fOwnedPrinter.DoGetDefaultPaperName;
+end; 
+
+================================================================================
