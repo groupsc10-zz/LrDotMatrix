@@ -74,6 +74,8 @@ procedure Register;
 
 implementation
 
+{$R lr_dotmatrix.res}
+
 function IfThen(aCondition: boolean; const aFalseReturn: string; const aTrueReturn: string): string;
 begin
   if (aCondition) then
@@ -232,8 +234,5 @@ begin
   fDoc := aDoc;
   inherited Show_Modal(aDoc);
 end;
-
-initialization
-  {$I lr_dotmatrix.lrs}
 
 end.
